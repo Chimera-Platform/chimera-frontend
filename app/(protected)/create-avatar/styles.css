@@ -1,0 +1,71 @@
+/* Create Avatar specific styles to complement dashboard styles */
+
+/* Avatar form animations */
+.form-field-animation {
+  transition: all 0.2s ease-in-out;
+}
+
+.form-field-animation:focus {
+  transform: translateY(-2px);
+}
+
+/* Avatar preview container */
+.avatar-preview {
+  position: relative;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.avatar-preview:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+/* Create avatar section animations */
+.create-avatar-section {
+  animation: sectionIn 0.5s ease-out;
+  animation-fill-mode: both;
+}
+
+@keyframes sectionIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Form sections staggered animations */
+.form-section:nth-child(1) { animation-delay: 0s; }
+.form-section:nth-child(2) { animation-delay: 0.1s; }
+.form-section:nth-child(3) { animation-delay: 0.2s; }
+.form-section:nth-child(4) { animation-delay: 0.3s; }
+.form-section:nth-child(5) { animation-delay: 0.4s; }
+
+/* Toggle switch styling to match theme */
+.toggle-switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+/* Gradient backgrounds for sections */
+.background-gradient {
+  background: linear-gradient(
+    to bottom right,
+    rgba(99, 102, 241, 0.05),
+    rgba(168, 85, 247, 0.05)
+  );
+}
+
+.dark .background-gradient {
+  background: linear-gradient(
+    to bottom right,
+    rgba(99, 102, 241, 0.03),
+    rgba(168, 85, 247, 0.03)
+  );
+}

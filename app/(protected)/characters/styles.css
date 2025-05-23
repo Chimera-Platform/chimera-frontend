@@ -1,0 +1,92 @@
+/* Character page specific styles */
+.character-card {
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+.character-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1),
+    0 8px 10px -6px rgba(0, 0, 0, 0.05);
+}
+
+.profile-avatar {
+  position: relative;
+  transition: transform 0.3s ease;
+  overflow: hidden;
+}
+
+.profile-avatar:hover {
+  transform: scale(1.02);
+}
+
+.profile-avatar::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0) 30%);
+  z-index: 1;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.profile-avatar:hover::before {
+  opacity: 1;
+}
+
+/* Form field animations */
+.form-field-transition {
+  transition: all 0.3s ease;
+}
+
+.form-field-transition:focus {
+  transform: translateY(-2px);
+}
+
+/* Profile section animations */
+.profile-section {
+  animation: profileSectionIn 0.5s ease-out;
+  animation-fill-mode: both;
+}
+
+@keyframes profileSectionIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Staggered animations for multiple sections */
+.profile-section:nth-child(1) {
+  animation-delay: 0s;
+}
+.profile-section:nth-child(2) {
+  animation-delay: 0.1s;
+}
+.profile-section:nth-child(3) {
+  animation-delay: 0.2s;
+}
+
+/* Avatar upload button animations */
+.avatar-upload-button {
+  transition: all 0.2s ease;
+}
+
+.avatar-upload-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px rgba(99, 102, 241, 0.6);
+}
+
+/* For small screens */
+@media (max-width: 768px) {
+  .sidebar-container {
+    display: none; /* Hide sidebar on mobile */
+  }
+}

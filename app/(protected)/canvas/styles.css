@@ -1,0 +1,258 @@
+/* Canvas page specific styles */
+.canvas-container {
+  transition: all 0.3s ease;
+  overflow: visible;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  /* Remove min-height that depends on viewport */
+  height: auto;
+}
+
+.canvas-tabs-list {
+  border-radius: 0.5rem;
+  padding: 0.25rem;
+}
+
+.canvas-tab-trigger {
+  transition: all 0.3s ease;
+}
+
+.canvas-tab-trigger:hover:not([aria-disabled="true"]) {
+  background-color: rgba(99, 102, 241, 0.1);
+}
+
+/* Canvas output container - content-based sizing */
+.canvas-output {
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  /* Set minimum height based on content need rather than viewport */
+  min-height: 450px;
+  width: 100%;
+}
+
+.canvas-image-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.canvas-image {
+  animation: fadeIn 0.5s ease;
+  border-radius: 0.25rem;
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+  max-height: 450px;
+}
+
+.reduced-size {
+  max-width: 500px; /* Increased from 400px */
+  max-height: 450px; /* Increased from 350px */
+  width: auto;
+  height: auto;
+}
+
+.canvas-button {
+  transition: all 0.2s ease;
+}
+
+.canvas-button:hover:not(:disabled) {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px rgba(99, 102, 241, 0.6);
+}
+
+/* Form field animations */
+.form-field-transition {
+  transition: all 0.3s ease;
+}
+
+.form-field-transition:focus {
+  transform: translateY(-2px);
+}
+
+/* Profile section animations */
+.profile-section {
+  animation: profileSectionIn 0.5s ease-out;
+  animation-fill-mode: both;
+}
+
+@keyframes profileSectionIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Staggered animations for multiple sections */
+.profile-section:nth-child(1) {
+  animation-delay: 0s;
+}
+.profile-section:nth-child(2) {
+  animation-delay: 0.1s;
+}
+.profile-section:nth-child(3) {
+  animation-delay: 0.2s;
+}
+
+/* Inpaint canvas styling */
+.canvas-content {
+  border-radius: 0.5rem;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  /* Content-based sizing */
+  height: auto;
+  min-height: 770px;
+}
+
+/* Tools container */
+.canvas-tools {
+  background-color: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+}
+
+/* Canvas specific styles */
+.canvas-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+}
+
+.canvas-holder {
+  position: relative;
+  width: 512px;
+  height: 512px;
+  margin: 0 auto;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+/* For small screens */
+@media (max-width: 768px) {
+  .sidebar-container {
+    display: none; /* Hide sidebar on mobile */
+  }
+  
+  .canvas-output {
+    min-height: 350px; /* Smaller minimum on mobile but still content-focused */
+  }
+  
+  .canvas-content {
+    min-height: 500px; /* Smaller minimum on mobile */
+  }
+  
+  .canvas-holder {
+    width: 100%;
+    height: auto;
+    max-width: 512px;
+  }
+}
+
+.canvas-tabs-list + [data-state="active"] {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Ensure the tabs content fills available space */
+.canvas-tabs {
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  flex: 1;
+}
+
+.tabs-content-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: auto;
+  height: auto;
+}
+
+/* Image preview dialog styles */
+.image-preview-dialog {
+  --dialog-width: 90vw;
+}
+
+.image-preview-content {
+  width: var(--dialog-width);
+  max-width: var(--dialog-width) !important;
+  padding: 0;
+}
+
+.image-preview-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-height: 85vh;
+  overflow-y: auto;
+  background-color: rgba(0, 0, 0, 0.9);
+  padding: 0;
+}
+
+.image-preview-img {
+  max-width: 100%;
+  max-height: 85vh;
+  object-fit: contain;
+  padding: 1rem;
+  margin: auto;
+}
+
+/* ScrollArea modification to properly handle content height */
+.ScrollAreaViewport {
+  height: auto !important;
+}
+
+/* Responsive improvements */
+@media (max-width: 768px) {
+  .image-preview-content {
+    --dialog-width: 98vw;
+  }
+  
+  .image-preview-img {
+    padding: 0.5rem;
+  }
+  
+  .sidebar-container {
+    display: none; /* Hide sidebar on mobile */
+  }
+  
+  /* Better mobile canvas experience */
+  .canvas-controls {
+    flex-direction: column;
+  }
+  
+  .canvas-buttons {
+    flex-wrap: wrap;
+  }
+}

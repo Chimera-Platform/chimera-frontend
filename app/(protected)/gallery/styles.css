@@ -1,0 +1,244 @@
+/* Gallery page specific styles */
+.gallery-card {
+  transition: all 0.3s ease;
+  overflow: hidden;
+  height: 100%;
+  max-width: 100%;
+}
+
+.gallery-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1),
+    0 8px 10px -6px rgba(0, 0, 0, 0.05);
+}
+
+.gallery-image {
+  position: relative;
+  overflow: hidden;
+  height: 280px; /* Increased from 200px for larger display */
+}
+
+.gallery-image img,
+.gallery-image > div {
+  transition: transform 0.3s ease;
+}
+
+.gallery-image:hover img,
+.gallery-image:hover > div {
+  transform: scale(1.05);
+}
+
+.gallery-thumbnail {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  max-height: 280px; /* Increased to match container */
+}
+
+.gallery-image::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0) 30%);
+  z-index: 1;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.gallery-image:hover::before {
+  opacity: 1;
+}
+
+/* Image preview dialog styles */
+.image-preview-dialog {
+  --dialog-width: 90vw;
+}
+
+.image-preview-content {
+  width: var(--dialog-width);
+  max-width: var(--dialog-width) !important;
+  padding: 0 !important;
+  background-color: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+/* Hide the built-in close button in the image preview dialog */
+.image-preview-content [data-radix-collection-item],
+.image-preview-content button[aria-label="Close"],
+.image-preview-dialog button[aria-label="Close"],
+.image-preview-dialog [aria-label="Close"],
+.image-preview-content [aria-label="Close"],
+.image-preview-content [cmdk-input],
+.image-preview-content [data-state="open"] button,
+.image-preview-dialog [data-dialog-close],
+.image-preview-content [data-dialog-close],
+.image-preview-content div[role="dialog"] > button,
+.image-preview-content > div > button:first-of-type,
+.image-preview-content > button:first-of-type {
+  display: none !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  visibility: hidden !important;
+}
+
+.image-preview-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-height: 85vh;
+  overflow-y: auto;
+  background-color: transparent !important;
+  padding: 0;
+}
+
+.image-preview-img {
+  max-width: 100%;
+  max-height: 85vh;
+  object-fit: contain;
+  padding: 0;
+  margin: auto;
+  box-shadow: none !important;
+  background: none !important;
+}
+
+/* Additional styles to ensure complete transparency */
+.image-preview-content > div,
+.image-preview-content [role="dialog"],
+.image-preview-content [role="dialog"] > div {
+  background-color: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+}
+
+/* Additional styles to ensure transparency */
+.image-preview-dialog::backdrop {
+  background-color: rgba(0, 0, 0, 0.7) !important;
+}
+
+.image-preview-content > div {
+  background-color: transparent !important;
+  box-shadow: none !important;
+}
+
+/* Make any other dialog elements transparent */
+.image-preview-dialog *:not(.DialogHeader):not(.DialogTitle):not(button):not(img) {
+  background-color: transparent !important;
+}
+
+/* Fullscreen button hover effect - ENHANCED */
+.gallery-image .fullscreen-button {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  cursor: pointer !important;
+  z-index: 40;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: auto !important;
+  position: absolute;
+  top: 8px;
+  right: 8px;
+}
+
+.gallery-image:hover .fullscreen-button {
+  opacity: 1;
+}
+
+/* Make sure the fullscreen button has priority for clicks */
+.fullscreen-button:hover {
+  transform: scale(1.1);
+  background-color: rgba(0, 0, 0, 0.8) !important;
+}
+
+.fullscreen-button {
+  box-shadow: 0 0 0 1px rgba(255,255,255,0.1);
+  pointer-events: auto !important;
+}
+
+/* Form field animations */
+.form-field-transition {
+  transition: all 0.3s ease;
+}
+
+.form-field-transition:focus {
+  transform: translateY(-2px);
+}
+
+/* Profile section animations */
+.profile-section {
+  animation: profileSectionIn 0.5s ease-out;
+  animation-fill-mode: both;
+}
+
+@keyframes profileSectionIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Staggered animations for multiple sections */
+.profile-section:nth-child(1) {
+  animation-delay: 0s;
+}
+.profile-section:nth-child(2) {
+  animation-delay: 0.1s;
+}
+.profile-section:nth-child(3) {
+  animation-delay: 0.2s;
+}
+.profile-section:nth-child(4) {
+  animation-delay: 0.3s;
+}
+.profile-section:nth-child(5) {
+  animation-delay: 0.4s;
+}
+.profile-section:nth-child(6) {
+  animation-delay: 0.5s;
+}
+
+/* Avatar upload button animations */
+.avatar-upload-button {
+  transition: all 0.2s ease;
+}
+
+.avatar-upload-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px rgba(99, 102, 241, 0.6);
+}
+
+/* For small screens */
+@media (max-width: 768px) {
+  .sidebar-container {
+    display: none; /* Hide sidebar on mobile */
+  }
+  
+  .image-preview-content {
+    --dialog-width: 98vw;
+  }
+  
+  .image-preview-img {
+    padding: 0.5rem;
+  }
+}
+
+/* Make sure the preview-close-button ID is exempt from any hiding rules */
+#preview-close-button {
+  display: flex !important;
+  visibility: visible !important;
+  opacity: 0.8 !important; 
+  z-index: 9999 !important;
+}

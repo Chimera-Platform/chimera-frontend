@@ -1,0 +1,35 @@
+/* Marketplace specific styles to complement dashboard styles */
+
+/* Avatar card hover effect */
+.marketplace-avatar-card {
+  transition: all 0.2s ease-in-out;
+}
+
+.marketplace-avatar-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.05);
+}
+
+/* Search input animations */
+.marketplace-search {
+  transition: all 0.3s ease;
+}
+
+.marketplace-search:focus {
+  transform: scale(1.01);
+}
+
+/* Marketplace specific avatar grid */
+.avatar-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+/* Different delays for staggered animations in avatar grid */
+.avatar-item:nth-child(1) { animation-delay: 0s; }
+.avatar-item:nth-child(2) { animation-delay: 0.1s; }
+.avatar-item:nth-child(3) { animation-delay: 0.2s; }
+.avatar-item:nth-child(4) { animation-delay: 0.3s; }
+.avatar-item:nth-child(5) { animation-delay: 0.4s; }
+.avatar-item:nth-child(6) { animation-delay: 0.5s; }
