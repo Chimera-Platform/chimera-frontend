@@ -1,5 +1,7 @@
 // Image generation and manipulation service
 
+import { STORAGE_ENABLED, STORAGE_DISABLED_MESSAGE } from "@/lib/config";
+
 /**
  * Get the authentication token from localStorage
  * @returns {string|null} - The authentication token or null if not found
@@ -60,6 +62,9 @@ export const generateImage = async (prompt) => {
  */
 export const inpaintImage = async (imageUrl, mask, prompt) => {
   try {
+    if (!STORAGE_ENABLED) {
+      throw new Error(STORAGE_DISABLED_MESSAGE);
+    }
     const token = getAuthToken();
     if (!token) {
       throw new Error("Authentication token not found");
@@ -156,6 +161,9 @@ export const inpaintImage = async (imageUrl, mask, prompt) => {
  */
 export const saveToGallery = async (imageUrl, prompt, type) => {
   try {
+    if (!STORAGE_ENABLED) {
+      throw new Error(STORAGE_DISABLED_MESSAGE);
+    }
     const token = getAuthToken();
     if (!token) {
       throw new Error("Authentication token not found");
@@ -253,6 +261,9 @@ const getFirebaseToken = async () => {
  */
 export const startInpaintJob = async (imageUrl, mask, prompt) => {
   try {
+    if (!STORAGE_ENABLED) {
+      throw new Error(STORAGE_DISABLED_MESSAGE);
+    }
     const token = getAuthToken();
     if (!token) {
       throw new Error("Authentication token not found");
@@ -501,6 +512,9 @@ export const deleteImage = async (imageId) => {
  */
 export const uploadImage = async (base64Image, prompt = '') => {
   try {
+    if (!STORAGE_ENABLED) {
+      return { success: false, error: STORAGE_DISABLED_MESSAGE };
+    }
     // Get the token from the current user
     const token = await getToken();
     const apiBaseUrl = getApiBaseUrl();

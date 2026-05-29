@@ -1,6 +1,6 @@
 # Frontend - Next.js Application
 
-A modern React application built with Next.js, featuring Firebase authentication, real-time chat capabilities, and a beautiful UI with Tailwind CSS and Radix UI components.
+A modern Next.js application, featuring Firebase authentication, real-time chat capabilities, and a beautiful UI with Tailwind CSS and Radix UI components.
 
 ## 🚀 Features
 

@@ -20,6 +20,7 @@ import ProtectedRoute from "@/components/ProtectedRoute";
 import { DashboardShell } from "@/components/dashboard/DashboardShell";
 // Utilities
 import { toast } from "sonner";
+import { STORAGE_ENABLED, STORAGE_DISABLED_MESSAGE } from "@/lib/config";
 import imageCompression from "browser-image-compression";
 import { useTheme } from "next-themes";
 // Icons
@@ -123,6 +124,10 @@ export default function ProfilePage() {
   const handlePhotoUpload = async (e) => {
     const file = e.target.files?.[0];
     if (!file) return;
+    if (!STORAGE_ENABLED) {
+      toast.warning(STORAGE_DISABLED_MESSAGE);
+      return;
+    }
     if (!user) {
       toast.error("Please log in to update your profile");
       return;
