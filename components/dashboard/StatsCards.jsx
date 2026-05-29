@@ -18,26 +18,30 @@ export function StatsCards({ stats = [] }) {
                 {stat.value}
               </h3>
             </div>
-            <span
-              className={`flex items-center px-2 py-0.5 rounded-full text-xs font-medium ${stat.increase
-                  ? "bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-400"
-                  : "bg-red-100 text-red-800 dark:bg-red-900/30 dark:text-red-400"
-                }`}
-            >
-              {stat.increase ? (
-                <FiArrowUp className="w-3 h-3 mr-1" />
-              ) : (
-                <FiArrowDown className="w-3 h-3 mr-1" />
-              )}
-              {stat.change}%
-            </span>
+            {stat.change != null && (
+              <span
+                className={`flex items-center px-2 py-0.5 rounded-full text-xs font-medium ${stat.increase
+                    ? "bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-400"
+                    : "bg-red-100 text-red-800 dark:bg-red-900/30 dark:text-red-400"
+                  }`}
+              >
+                {stat.increase ? (
+                  <FiArrowUp className="w-3 h-3 mr-1" />
+                ) : (
+                  <FiArrowDown className="w-3 h-3 mr-1" />
+                )}
+                {stat.change}%
+              </span>
+            )}
           </div>
-          <div className="mt-2">
-            <Progress
-              value={stat.increase ? 65 : 40}
-              className="h-1.5"
-            />
-          </div>
+          {stat.change != null && (
+            <div className="mt-2">
+              <Progress
+                value={stat.increase ? 65 : 40}
+                className="h-1.5"
+              />
+            </div>
+          )}
         </div>
       ))}
     </div>

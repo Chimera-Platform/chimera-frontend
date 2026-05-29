@@ -12,6 +12,7 @@ import GalleryHeader from "@/components/Gallery/GalleryHeader";
 import ImageGrid from "@/components/Gallery/ImageGrid";
 import UploadDialog from "@/components/Gallery/UploadDialog";
 import { useGalleryImages } from "@/hooks/useGalleryImages";
+import { STORAGE_ENABLED } from "@/lib/config";
 
 // Styles
 import "../dashboard/styles.css";
@@ -56,10 +57,27 @@ export default function GalleryPage() {
 
   // Fetch gallery data when user is available
   useEffect(() => {
-    if (user && !authLoading) {
+    if (user && !authLoading && STORAGE_ENABLED) {
       fetchGallery();
     }
   }, [user, authLoading, fetchGallery]);
+
+  // Gallery is disabled in the demo (storage off) — don't render the broken grid
+  if (!STORAGE_ENABLED) {
+    return (
+      <DashboardShell activePage="gallery" title="Gallery">
+        <div className="flex flex-col items-center justify-center h-64 text-center">
+          <h2 className="text-xl font-semibold text-slate-800 dark:text-slate-200 mb-2">
+            The gallery is disabled in this demo
+          </h2>
+          <p className="text-slate-500 dark:text-slate-400 max-w-md">
+            This portfolio deployment runs without image storage, so saved and
+            uploaded images are turned off.
+          </p>
+        </div>
+      </DashboardShell>
+    );
+  }
 
   const handleCreateNew = () => {
     router.push("/canvas");

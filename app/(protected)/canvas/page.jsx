@@ -15,6 +15,7 @@ import CanvasHeader from "@/components/Canvas/CanvasHeader";
 import GenerateTab from "@/components/Canvas/GenerateTab";
 import InpaintTab from "@/components/Canvas/InpaintTab";
 import { useCanvasImage } from "@/hooks/useCanvasImage";
+import { STORAGE_ENABLED } from "@/lib/config";
 
 // Styles
 import "../dashboard/styles.css";
@@ -90,6 +91,24 @@ export default function CanvasPage() {
   const handleApiKeyUpdated = () => {
     checkApiKeyStatus();
   };
+
+  // Image generation is disabled in the demo (storage off)
+  if (!STORAGE_ENABLED) {
+    return (
+      <DashboardShell activePage="canvas" title="AI Image Canvas">
+        <div className="flex flex-col items-center justify-center h-64 text-center">
+          <h2 className="text-xl font-semibold text-slate-800 dark:text-slate-200 mb-2">
+            Image generation is disabled in this demo
+          </h2>
+          <p className="text-slate-500 dark:text-slate-400 max-w-md">
+            This portfolio deployment runs without image storage, so AI image
+            generation and editing are turned off. Chat with your characters is
+            fully available.
+          </p>
+        </div>
+      </DashboardShell>
+    );
+  }
 
   // Loading state
   if (authLoading || apiKeyLoading) {

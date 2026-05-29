@@ -8,6 +8,7 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { useAuth } from "@/context/AuthContext";
+import { STORAGE_ENABLED } from "@/lib/config";
 
 // Icons
 import {
@@ -383,13 +384,15 @@ export function Header({
                           <FiKey className="mr-2 h-3.5 w-3.5" />
                           <span>OpenRouter API</span>
                         </button>
-                        <button 
-                          onClick={handleReplicateApiClick} 
-                          className="flex items-center w-full px-3 py-1.5 text-sm text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800/60 rounded-md menu-item-hover"
-                        >
-                          <FiImage className="mr-2 h-3.5 w-3.5" />
-                          <span>Replicate API</span>
-                        </button>
+                        {STORAGE_ENABLED && (
+                          <button
+                            onClick={handleReplicateApiClick}
+                            className="flex items-center w-full px-3 py-1.5 text-sm text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800/60 rounded-md menu-item-hover"
+                          >
+                            <FiImage className="mr-2 h-3.5 w-3.5" />
+                            <span>Replicate API</span>
+                          </button>
+                        )}
                       </div>
                     )}
                   </div>

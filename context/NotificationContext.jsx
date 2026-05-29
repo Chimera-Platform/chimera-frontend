@@ -5,11 +5,7 @@ import { createContext, useContext, useState, useEffect } from "react";
 const NotificationContext = createContext();
 
 export function NotificationProvider({ children }) {
-  const [notifications, setNotifications] = useState([
-    { id: 1, text: "New message from User1", time: "5m ago", unread: true },
-    { id: 2, text: "Your avatar was liked by User2", time: "1h ago", unread: true },
-    { id: 3, text: "New items available in marketplace", time: "3h ago", unread: false },
-  ]);
+  const [notifications, setNotifications] = useState([]);
   
   // Bu fonksiyon, belirli bir bildirimi okundu olarak işaretler
   const handleNotificationRead = (id) => {

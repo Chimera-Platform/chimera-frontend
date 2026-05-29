@@ -13,16 +13,8 @@ import { AvatarDisplay } from "@/components/dashboard/AvatarDisplay";
 import { ChatStats } from "@/components/dashboard/ChatStats";
 import { CreditsCard } from "@/components/dashboard/CreditsCard";
 import { StatsCards } from "@/components/dashboard/StatsCards";
-import { ActivityList } from "@/components/dashboard/ActivityList";
 import { NotificationsList } from "@/components/dashboard/NotificationsList";
 import { QuickActions } from "@/components/dashboard/QuickActions";
-
-// Icons
-import {
-  FiPenTool,
-  FiShoppingBag,
-  FiMessageSquare,
-} from "react-icons/fi";
 
 // Styles
 import "./styles.css";
@@ -40,17 +32,11 @@ const DashboardPage = () => {
     setMounted(true);
   }, []);
 
-  // Mock data for dashboard
+  // Real stats from actual user data
   const stats = [
-    { label: "Profile Views", value: 1240, change: 12.5, increase: true },
-    { label: "Messages", value: 35, change: 8.2, increase: true },
-    { label: "Marketplace Items", value: 7, change: 2.1, increase: false },
-  ];
-
-  const activities = [
-    { id: 1, action: "Created a new avatar", time: "2 hours ago", icon: FiPenTool },
-    { id: 2, action: "Posted in marketplace", time: "1 day ago", icon: FiShoppingBag },
-    { id: 3, action: "Received 5 new messages", time: "2 days ago", icon: FiMessageSquare },
+    { label: "Avatars", value: userAvatars?.length || 0 },
+    { label: "Chats", value: chats?.length || 0 },
+    { label: "Messages", value: totalMessages },
   ];
 
   // Calculate total messages
@@ -92,15 +78,12 @@ const DashboardPage = () => {
         {/* Stats Cards */}
         <StatsCards stats={stats} />
 
-        {/* Main Content Sections */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-          <ActivityList activities={activities} />
-          <NotificationsList 
-            notifications={notifications} 
-            onReadNotification={handleNotificationRead} 
-            onMarkAllAsRead={markAllAsRead} 
-          />
-        </div>
+        {/* Notifications */}
+        <NotificationsList
+          notifications={notifications}
+          onReadNotification={handleNotificationRead}
+          onMarkAllAsRead={markAllAsRead}
+        />
 
         {/* Quick Actions */}
         <QuickActions />
