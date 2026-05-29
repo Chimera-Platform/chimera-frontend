@@ -4,7 +4,7 @@ import { useRef, useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { saveToGallery } from "@/services/imageService";
 import { toast } from "sonner";
-import GallerySelector from "@/components/gallery/GallerySelector";
+import GallerySelector from "@/components/Gallery/GallerySelector";
 import { Download } from "lucide-react";
 
 export default function ImageCanvas({

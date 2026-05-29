@@ -252,7 +252,7 @@ export default function CharactersPage() {
           <DialogHeader>
             <DialogTitle>Delete Avatar</DialogTitle>
             <DialogDescription>
-              Are you sure you want to delete "{avatarToDelete?.name}"? This
+              Are you sure you want to delete &quot;{avatarToDelete?.name}&quot;? This
               action cannot be undone.
             </DialogDescription>
           </DialogHeader>

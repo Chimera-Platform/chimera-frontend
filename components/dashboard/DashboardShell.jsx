@@ -5,7 +5,7 @@ import { Sidebar } from "@/components/dashboard/Sidebar";
 import { Header } from "@/components/dashboard/Header";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { ApiKeyModal } from "@/components/dashboard/ApiKeyModal";
-import { ReplicateApiKeyModal } from "@/components/canvas/ReplicateApiKeyModal";
+import { ReplicateApiKeyModal } from "@/components/Canvas/ReplicateApiKeyModal";
 import { useCredits } from "@/context/CreditsContext";
 import { useNotifications } from "@/context/NotificationContext";
 

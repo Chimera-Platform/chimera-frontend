@@ -117,7 +117,7 @@ export default function CharacterDetailsPage({ params }) {
               Character not found
             </h3>
             <p className="text-slate-500 dark:text-slate-400 mb-6">
-              The character you're looking for doesn't exist or you don't have
+              The character you&apos;re looking for doesn&apos;t exist or you don&apos;t have
               permission to view it.
             </p>
             <Button 

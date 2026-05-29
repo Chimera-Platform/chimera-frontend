@@ -10,7 +10,7 @@ export default function AvatarFormTips() {
       <ul className="text-sm text-blue-700 dark:text-blue-400 space-y-1.5 list-disc pl-5">
         <li>Create a detailed background story to give your avatar depth</li>
         <li>Define clear personality traits and speaking style</li>
-        <li>Choose an image that captures your avatar's essence</li>
+        <li>Choose an image that captures your avatar&apos;s essence</li>
         <li>Share your avatar on the marketplace for others to enjoy</li>
       </ul>
     </div>

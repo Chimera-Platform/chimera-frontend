@@ -7,13 +7,13 @@ import { DashboardShell } from "@/components/dashboard/DashboardShell";
 import { useAuth } from "@/hooks/useAuth";
 import { useReplicateApiKey } from "@/hooks/useReplicateApiKey";
 import ImagePreviewDialog from "@/components/ui/ImagePreviewDialog";
-import { ReplicateApiKeySetup } from "@/components/canvas/ReplicateApiKeySetup";
-import { ReplicateApiKeyModal } from "@/components/canvas/ReplicateApiKeyModal";
+import { ReplicateApiKeySetup } from "@/components/Canvas/ReplicateApiKeySetup";
+import { ReplicateApiKeyModal } from "@/components/Canvas/ReplicateApiKeyModal";
 
 // Modülerleştirilmiş bileşenler
-import CanvasHeader from "@/components/canvas/CanvasHeader";
-import GenerateTab from "@/components/canvas/GenerateTab";
-import InpaintTab from "@/components/canvas/InpaintTab";
+import CanvasHeader from "@/components/Canvas/CanvasHeader";
+import GenerateTab from "@/components/Canvas/GenerateTab";
+import InpaintTab from "@/components/Canvas/InpaintTab";
 import { useCanvasImage } from "@/hooks/useCanvasImage";
 
 // Styles

@@ -8,9 +8,9 @@ import { DashboardShell } from "@/components/dashboard/DashboardShell";
 import ImagePreviewDialog from "@/components/ui/ImagePreviewDialog";
 
 // Modülerleştirilmiş bileşenler
-import GalleryHeader from "@/components/gallery/GalleryHeader";
-import ImageGrid from "@/components/gallery/ImageGrid";
-import UploadDialog from "@/components/gallery/UploadDialog";
+import GalleryHeader from "@/components/Gallery/GalleryHeader";
+import ImageGrid from "@/components/Gallery/ImageGrid";
+import UploadDialog from "@/components/Gallery/UploadDialog";
 import { useGalleryImages } from "@/hooks/useGalleryImages";
 
 // Styles

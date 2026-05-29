@@ -51,7 +51,7 @@ export default function GalleryHeader({
             Selection Mode: Click on an image to use it for your avatar
           </p>
           <p className="text-center text-sm text-indigo-600 dark:text-indigo-400 mt-1">
-            After selecting, you'll be returned to the avatar creation page
+            After selecting, you&apos;ll be returned to the avatar creation page
           </p>
         </div>
       )}

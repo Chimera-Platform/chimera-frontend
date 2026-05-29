@@ -1,4 +1,4 @@
-import ImageCanvas from "@/components/canvas/ImageCanvas";
+import ImageCanvas from "@/components/Canvas/ImageCanvas";
 
 export default function InpaintTab({
   generatedImage,

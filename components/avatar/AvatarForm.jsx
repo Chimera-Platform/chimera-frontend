@@ -223,7 +223,7 @@ function CreatorField({ value, onChange, disabled }) {
         className="border-slate-200 dark:border-slate-700 focus:border-indigo-500 dark:focus:border-indigo-500 form-field-animation"
       />
       <p className="text-sm text-slate-500 dark:text-slate-400">
-        This will be displayed on the character's details page if the
+        This will be displayed on the character&apos;s details page if the
         character is public.
       </p>
     </div>
